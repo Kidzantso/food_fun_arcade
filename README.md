@@ -1,8 +1,3 @@
-Sure! Here’s the **README.md** content in pure Markdown format — ready to paste directly into your project 👇
-
----
-
-```markdown
 # 🏆 Food Fun Arcade
 *A Flutter-based mini-game collection for restaurant apps (e.g., McDonald’s) where customers can play and earn points.*
 
@@ -75,7 +70,6 @@ food_fun_arcade/
    ```bash
    git clone https://github.com/yourusername/food_fun_arcade.git
    cd food_fun_arcade
-````
 
 2. Get dependencies
 
@@ -99,5 +93,4 @@ food_fun_arcade/
 * Integrate with restaurant’s **loyalty system** (points/rewards).
 * Add animations, sound effects, and leaderboard.
 
-```
 
