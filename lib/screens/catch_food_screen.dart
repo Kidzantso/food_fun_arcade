@@ -80,22 +80,25 @@ class _CatchFoodScreenState extends State<CatchFoodScreen> {
     dropTimer?.cancel();
     setState(() => isPlaying = false);
 
-    // Show popup dialog with score
     showDialog(
       context: context,
       barrierDismissible: false,
       builder: (context) => AlertDialog(
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.yellow[50],
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         title: const Text(
-          "🎉 Game Over!",
+          "🎉 Great Job!",
           textAlign: TextAlign.center,
-          style: TextStyle(fontWeight: FontWeight.bold, color: Colors.red),
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            color: Color(0xFF8B0000),
+            fontSize: 24,
+          ),
         ),
         content: Text(
           "Your final score is: $score ⭐",
           textAlign: TextAlign.center,
-          style: const TextStyle(fontSize: 18),
+          style: const TextStyle(fontSize: 18, color: Colors.black87),
         ),
         actionsAlignment: MainAxisAlignment.center,
         actions: [
@@ -130,6 +133,12 @@ class _CatchFoodScreenState extends State<CatchFoodScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color.fromARGB(255, 255, 255, 255),
+      appBar: AppBar(
+        title: const Text("🍔 Catch the Food!"),
+        backgroundColor: Colors.yellow[700],
+        foregroundColor: Colors.red[800],
+      ),
       body: Stack(
         children: [
           GestureDetector(
@@ -142,95 +151,72 @@ class _CatchFoodScreenState extends State<CatchFoodScreen> {
                 });
               }
             },
-            child: Container(
-              decoration: const BoxDecoration(
-                gradient: LinearGradient(
-                  colors: [Color(0xFFFFD700), Color(0xFFFFA500)],
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
+            child: Stack(
+              children: [
+                // Timer & Score
+                Positioned(
+                  top: 20,
+                  left: 16,
+                  child: Text(
+                    "⏰ $timeLeft s",
+                    style: const TextStyle(
+                      fontSize: 22,
+                      fontWeight: FontWeight.bold,
+                      color: Color.fromARGB(255, 255, 0, 0),
+                    ),
+                  ),
                 ),
-              ),
-              child: Stack(
-                children: [
-                  // Timer & Score
-                  Positioned(
-                    top: 40,
-                    left: 60,
-                    child: Text(
-                      "⏰ $timeLeft s",
-                      style: const TextStyle(
-                        fontSize: 22,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.red,
-                      ),
+                Positioned(
+                  top: 20,
+                  right: 16,
+                  child: Text(
+                    "⭐ $score",
+                    style: const TextStyle(
+                      fontSize: 22,
+                      fontWeight: FontWeight.bold,
+                      color: Color.fromARGB(255, 255, 0, 0),
                     ),
                   ),
-                  Positioned(
-                    top: 40,
-                    right: 20,
-                    child: Text(
-                      "⭐ $score",
-                      style: const TextStyle(
-                        fontSize: 22,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.red,
-                      ),
-                    ),
-                  ),
+                ),
 
-                  // Food
-                  Align(
-                    alignment: Alignment(foodX, foodY),
-                    child: Image.asset(currentFood, width: 60),
-                  ),
+                // Falling Food
+                Align(
+                  alignment: Alignment(foodX, foodY),
+                  child: Image.asset(currentFood, width: 60),
+                ),
 
-                  // 🍟 Basket replaced with Happy Meal box
-                  Align(
-                    alignment: Alignment(basketX, 0.9),
-                    child: Image.asset(
-                      'assets/happy_meal_box.png',
-                      width: 100,
-                      height: 80,
-                      fit: BoxFit.contain,
-                    ),
+                // Basket (Happy Meal box)
+                Align(
+                  alignment: Alignment(basketX, 0.9),
+                  child: Image.asset(
+                    'assets/happy_meal_box.png',
+                    width: 100,
+                    height: 80,
+                    fit: BoxFit.contain,
                   ),
+                ),
 
-                  // Start button
-                  if (!isPlaying)
-                    Center(
-                      child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.red.shade700,
-                          foregroundColor: Colors.white,
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 30,
-                            vertical: 15,
-                          ),
-                          textStyle: const TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                          ),
+                // Start Button
+                if (!isPlaying)
+                  Center(
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.yellow[700],
+                        foregroundColor: Colors.red[800],
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 40,
+                          vertical: 15,
                         ),
-                        onPressed: startGame,
-                        child: const Text("Start Game 🍟"),
+                        textStyle: const TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
+                      onPressed: startGame,
+                      child: const Text("Start Game 🎯"),
                     ),
-                ],
-              ),
-            ),
-          ),
-          // Back button
-          Positioned(
-            top: 32,
-            left: 8,
-            child: SafeArea(
-              child: IconButton(
-                icon: const Icon(Icons.arrow_back, color: Colors.red, size: 32),
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                tooltip: "Back to Home",
-              ),
+                  ),
+              ],
             ),
           ),
         ],

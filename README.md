@@ -17,7 +17,7 @@ This project is built using **Flutter**, making it cross-platform (Android & iOS
 |------|--------------|--------|
 | 🍟 **Catch the Food** | Catch falling burgers, fries, and drinks in a basket before time runs out! | ✅ Done |
 | 🍔 **Build the Burger** | Stack ingredients correctly to make the perfect burger. | ⏳ Coming Soon |
-| 🥤 **Memory Match** | Flip cards to find matching food pairs. | ⏳ Coming Soon |
+| 🥤 **Memory Match** | Flip cards to find matching food pairs. | ✅ Completed (Visuals & Gameplay) |
 
 ---
 
@@ -39,6 +39,22 @@ This project is built using **Flutter**, making it cross-platform (Android & iOS
   - Added **end-game popup** with score summary and a “Home” button.  
 - 🧠 Prepared app for adding multiple mini-games in the future.
 
+### 🗓️ Day 2 – Memory Match Game
+
+**Tasks Completed:**
+- ✅ Created the **Memory Match** game screen with full gameplay logic:
+  - Implemented randomized food emoji pairs.  
+  - Added card flipping animation and matching logic.  
+  - Added **score and timer system** similar to Catch Food.   
+- ✅ Designed the UI to **match the Catch Food screen’s visuals**, including:
+  - Red background and yellow-themed cards.  
+  - Matching fonts, layout, and McDonald’s-style color scheme.  
+  - Consistent score/time bar at the top.  
+- ✅ Recreated the **end-game popup dialog**:
+  - Same layout and visual theme as Catch Food.  
+  - Rounded yellow box with a red “Back to Home” button.  
+- 🧠 Ensured code reusability for future games with the same design structure.
+
 ---
 
 ## 🧱 Project Structure
@@ -51,12 +67,13 @@ food_fun_arcade/
 │   ├── burger.png
 │   ├── fries.png
 │   └── drink.png
-│
+│   └── happy_meal_box.png
 ├── lib/
 │   ├── main.dart
 │   ├── screens/
 │   │   ├── home_screen.dart
-│   │   └── catch_food_screen.dart
+│   │   ├── catch_food_screen.dart
+│   │   └── memory_match_screen.dart
 │
 └── pubspec.yaml
 
