@@ -55,10 +55,10 @@ class _CatchFoodScreenState extends State<CatchFoodScreen> {
     dropTimer = Timer.periodic(const Duration(milliseconds: 50), (timer) {
       if (!isPlaying) return;
       setState(() {
-        foodY += 0.04; // slightly slower and more natural drop
+        foodY += 0.04;
       });
 
-      // Collision detection — closer to basket
+      // Collision detection
       if (foodY > 0.75 && (foodX - basketX).abs() < 0.18) {
         score += 10;
         resetFood();
@@ -83,7 +83,7 @@ class _CatchFoodScreenState extends State<CatchFoodScreen> {
     // Show popup dialog with score
     showDialog(
       context: context,
-      barrierDismissible: false, // must click "Home"
+      barrierDismissible: false,
       builder: (context) => AlertDialog(
         backgroundColor: Colors.white,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
@@ -110,8 +110,8 @@ class _CatchFoodScreenState extends State<CatchFoodScreen> {
             ),
             onPressed: () {
               widget.onGameEnd(score);
-              Navigator.pop(context); // close dialog
-              Navigator.pop(context); // return to home
+              Navigator.pop(context);
+              Navigator.pop(context);
             },
             child: const Text("🏠 Home", style: TextStyle(fontSize: 18)),
           ),
@@ -130,100 +130,110 @@ class _CatchFoodScreenState extends State<CatchFoodScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: GestureDetector(
-        onHorizontalDragUpdate: (details) {
-          if (isPlaying) {
-            setState(() {
-              basketX +=
-                  details.delta.dx / MediaQuery.of(context).size.width * 2;
-              basketX = basketX.clamp(-1.0, 1.0);
-            });
-          }
-        },
-        child: Container(
-          decoration: const BoxDecoration(
-            gradient: LinearGradient(
-              colors: [Color(0xFFFFD700), Color(0xFFFFA500)],
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-            ),
-          ),
-          child: Stack(
-            children: [
-              // Timer & Score
-              Positioned(
-                top: 40,
-                left: 20,
-                child: Text(
-                  "⏰ $timeLeft s",
-                  style: const TextStyle(
-                    fontSize: 22,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.red,
-                  ),
+      body: Stack(
+        children: [
+          GestureDetector(
+            onHorizontalDragUpdate: (details) {
+              if (isPlaying) {
+                setState(() {
+                  basketX +=
+                      details.delta.dx / MediaQuery.of(context).size.width * 2;
+                  basketX = basketX.clamp(-1.0, 1.0);
+                });
+              }
+            },
+            child: Container(
+              decoration: const BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [Color(0xFFFFD700), Color(0xFFFFA500)],
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
                 ),
               ),
-              Positioned(
-                top: 40,
-                right: 20,
-                child: Text(
-                  "⭐ $score",
-                  style: const TextStyle(
-                    fontSize: 22,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.red,
-                  ),
-                ),
-              ),
-
-              // Food
-              Align(
-                alignment: Alignment(foodX, foodY),
-                child: Image.asset(currentFood, width: 60),
-              ),
-
-              // Basket (red & yellow like McDonald’s)
-              Align(
-                alignment: Alignment(basketX, 0.9),
-                child: Container(
-                  width: 90,
-                  height: 60,
-                  decoration: BoxDecoration(
-                    color: Colors.red.shade700,
-                    borderRadius: BorderRadius.circular(12),
-                    border: Border.all(color: Colors.yellow.shade600, width: 4),
-                  ),
-                  child: const Icon(
-                    Icons.shopping_basket,
-                    color: Colors.white,
-                    size: 40,
-                  ),
-                ),
-              ),
-
-              // Start button
-              if (!isPlaying)
-                Center(
-                  child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.red.shade700,
-                      foregroundColor: Colors.white,
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 30,
-                        vertical: 15,
-                      ),
-                      textStyle: const TextStyle(
-                        fontSize: 20,
+              child: Stack(
+                children: [
+                  // Timer & Score
+                  Positioned(
+                    top: 40,
+                    left: 60,
+                    child: Text(
+                      "⏰ $timeLeft s",
+                      style: const TextStyle(
+                        fontSize: 22,
                         fontWeight: FontWeight.bold,
+                        color: Colors.red,
                       ),
                     ),
-                    onPressed: startGame,
-                    child: const Text("Start Game 🍟"),
                   ),
-                ),
-            ],
+                  Positioned(
+                    top: 40,
+                    right: 20,
+                    child: Text(
+                      "⭐ $score",
+                      style: const TextStyle(
+                        fontSize: 22,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.red,
+                      ),
+                    ),
+                  ),
+
+                  // Food
+                  Align(
+                    alignment: Alignment(foodX, foodY),
+                    child: Image.asset(currentFood, width: 60),
+                  ),
+
+                  // 🍟 Basket replaced with Happy Meal box
+                  Align(
+                    alignment: Alignment(basketX, 0.9),
+                    child: Image.asset(
+                      'assets/happy_meal_box.png',
+                      width: 100,
+                      height: 80,
+                      fit: BoxFit.contain,
+                    ),
+                  ),
+
+                  // Start button
+                  if (!isPlaying)
+                    Center(
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.red.shade700,
+                          foregroundColor: Colors.white,
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 30,
+                            vertical: 15,
+                          ),
+                          textStyle: const TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        onPressed: startGame,
+                        child: const Text("Start Game 🍟"),
+                      ),
+                    ),
+                ],
+              ),
+            ),
           ),
-        ),
+          // Back button
+          Positioned(
+            top: 32,
+            left: 8,
+            child: SafeArea(
+              child: IconButton(
+                icon: const Icon(Icons.arrow_back, color: Colors.red, size: 32),
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                tooltip: "Back to Home",
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }

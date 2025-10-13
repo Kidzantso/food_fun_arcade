@@ -41,7 +41,13 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("🍟 McPlay Rewards")),
+      appBar: AppBar(
+        title: const Text("🍟 McPlay Rewards"),
+        backgroundColor: Colors.yellow[700], // McDonald's yellow
+        foregroundColor: Colors.red[800], // McDonald's red for text/icons
+        elevation: 0,
+      ),
+      backgroundColor: Colors.red[700], // McDonald's red background
       body: Center(
         child: Padding(
           padding: const EdgeInsets.all(20),
@@ -50,33 +56,65 @@ class _HomeScreenState extends State<HomeScreen> {
             children: [
               const Text(
                 "Choose a Game!",
-                style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+                style: TextStyle(
+                  fontSize: 28,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.yellow, // McDonald's yellow
+                  shadows: [
+                    Shadow(
+                      blurRadius: 2,
+                      color: Colors.black54,
+                      offset: Offset(1, 1),
+                    ),
+                  ],
+                ),
               ),
               const SizedBox(height: 40),
               ElevatedButton.icon(
                 onPressed: _openCatchFoodGame,
-                icon: const Icon(Icons.fastfood),
+                icon: const Icon(Icons.fastfood, color: Colors.red),
                 label: const Text("Catch the Food"),
                 style: ElevatedButton.styleFrom(
                   minimumSize: const Size(200, 50),
+                  backgroundColor: Colors.yellow[700], // McDonald's yellow
+                  foregroundColor: Colors.red[800], // McDonald's red text
+                  textStyle: const TextStyle(fontWeight: FontWeight.bold),
+                  elevation: 4,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(16),
+                  ),
                 ),
               ),
               const SizedBox(height: 20),
               ElevatedButton.icon(
                 onPressed: _openBurgerStack,
-                icon: const Icon(Icons.lunch_dining),
+                icon: const Icon(Icons.lunch_dining, color: Colors.red),
                 label: const Text("Burger Stack"),
                 style: ElevatedButton.styleFrom(
                   minimumSize: const Size(200, 50),
+                  backgroundColor: Colors.yellow[700],
+                  foregroundColor: Colors.red[800],
+                  textStyle: const TextStyle(fontWeight: FontWeight.bold),
+                  elevation: 4,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(16),
+                  ),
                 ),
               ),
               const SizedBox(height: 20),
               ElevatedButton.icon(
                 onPressed: _openMemoryMatch,
-                icon: const Icon(Icons.extension),
+                icon: const Icon(Icons.extension, color: Colors.red),
                 label: const Text("Memory Match"),
                 style: ElevatedButton.styleFrom(
                   minimumSize: const Size(200, 50),
+                  backgroundColor: Colors.yellow[700],
+                  foregroundColor: Colors.red[800],
+                  textStyle: const TextStyle(fontWeight: FontWeight.bold),
+                  elevation: 4,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(16),
+                  ),
                 ),
               ),
             ],
