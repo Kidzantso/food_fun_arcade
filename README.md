@@ -78,13 +78,12 @@ This project is built using **Flutter**, making it cross-platform (Android & iOS
 ## 🧱 Project Structure
 
 ```
-
 food_fun_arcade/
 │
 ├── assets/
 │   ├── burger.png
 │   ├── fries.png
-│   └── drink.png
+│   ├── drink.png
 │   └── happy_meal_box.png
 ├── lib/
 │   ├── main.dart
@@ -93,9 +92,7 @@ food_fun_arcade/
 │   │   ├── catch_food_screen.dart
 │   │   ├── memory_match_screen.dart
 │   │   └── drink_tapper_screen.dart
-│
 └── pubspec.yaml
-
 ````
 
 ---
