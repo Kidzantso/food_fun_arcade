@@ -16,7 +16,7 @@ This project is built using **Flutter**, making it cross-platform (Android & iOS
 | Game | Description | Status |
 |------|--------------|--------|
 | 🍟 **Catch the Food** | Catch falling burgers, fries, and drinks in a basket before time runs out! | ✅ Done |
-| 🍔 **Build the Burger** | Stack ingredients correctly to make the perfect burger. | ⏳ Coming Soon |
+| 🍔 **Drink Tapper** | Tap on the food to get points. | ✅ Done |
 | 🥤 **Memory Match** | Flip cards to find matching food pairs. | ✅ Done |
 
 ---
@@ -55,6 +55,24 @@ This project is built using **Flutter**, making it cross-platform (Android & iOS
   - Rounded yellow box with a red “Back to Home” button.  
 - 🧠 Ensured code reusability for future games with the same design structure.
 
+### 🗓️ Day 3 – Drink Tapper Game & UI Enhancements
+
+**Tasks Completed:**
+
+- ✅ **Replaced “Build the Burger”** with a new, more engaging and easier-to-play game: **Drink Tapper**.  
+- ✅ Created the **Drink Tapper Screen**:
+  - Drinks appear randomly on the screen and disappear after a short time.  
+  - Players must **tap the drinks quickly** to earn points.  
+  - The speed dynamically increases as the score rises.  
+  - Ensured balance so the game becomes fast but not impossible.  
+- ✅ Implemented **the same visual design** as the previous games:
+  - Consistent McDonald’s-style UI (red, yellow, and white theme).  
+  - Rounded yellow pop-up at the end with “Back to Home” button.  
+- ✅ Integrated with **shared point system**:
+  - Each game reports earned points back to the `HomeScreen`.  
+  - Total score is updated seamlessly.  
+- 🧠 Improved **gameplay feel and difficulty curve** to keep it fun and responsive.
+
 ---
 
 ## 🧱 Project Structure
@@ -73,7 +91,8 @@ food_fun_arcade/
 │   ├── screens/
 │   │   ├── home_screen.dart
 │   │   ├── catch_food_screen.dart
-│   │   └── memory_match_screen.dart
+│   │   ├── memory_match_screen.dart
+│   │   └── drink_tapper_screen.dart
 │
 └── pubspec.yaml
 
@@ -106,8 +125,8 @@ food_fun_arcade/
 
 ## 💡 Future Plans
 
-* Add more mini-games with different difficulty levels.
+* Add more mini-games with different difficulty levels. ✅ Done
 * Integrate with restaurant’s **loyalty system** (points/rewards).
-* Add animations, sound effects, and leaderboard.
+* Add animations, sound effects.
 
 
