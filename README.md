@@ -17,7 +17,7 @@ This project is built using **Flutter**, making it cross-platform (Android & iOS
 |------|--------------|--------|
 | 🍟 **Catch the Food** | Catch falling burgers, fries, and drinks in a basket before time runs out! | ✅ Done |
 | 🍔 **Build the Burger** | Stack ingredients correctly to make the perfect burger. | ⏳ Coming Soon |
-| 🥤 **Memory Match** | Flip cards to find matching food pairs. | ✅ Completed (Visuals & Gameplay) |
+| 🥤 **Memory Match** | Flip cards to find matching food pairs. | ✅ Done |
 
 ---
 
