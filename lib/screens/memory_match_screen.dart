@@ -224,7 +224,7 @@ class _MemoryMatchScreenState extends State<MemoryMatchScreen> {
                   ),
                 ),
                 onPressed: startGame,
-                child: const Text("Start Game 🎯"),
+                child: const Text("Start Game 🎮"),
               ),
             ),
     );

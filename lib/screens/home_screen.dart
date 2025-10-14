@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'drink_tapper_screen.dart';
 import 'catch_food_screen.dart';
-import 'memory_match_screen.dart'; // ✅ Import the new screen
+import 'memory_match_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   final Function(int) onPointsEarned;
@@ -24,9 +25,16 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  void _openBurgerStack() {
-    ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text("Burger Stack coming soon 🍔")),
+  void _openBurgerStack() async {
+    await Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => DrinkTapperScreen(
+          onGameEnd: (points) {
+            widget.onPointsEarned(points);
+          },
+        ),
+      ),
     );
   }
 
@@ -94,7 +102,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ElevatedButton.icon(
                 onPressed: _openBurgerStack,
                 icon: const Icon(Icons.lunch_dining, color: Colors.red),
-                label: const Text("Burger Stack"),
+                label: const Text("Food Tapper"),
                 style: ElevatedButton.styleFrom(
                   minimumSize: const Size(200, 50),
                   backgroundColor: Colors.yellow[700],

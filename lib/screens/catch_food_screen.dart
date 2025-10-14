@@ -213,7 +213,7 @@ class _CatchFoodScreenState extends State<CatchFoodScreen> {
                         ),
                       ),
                       onPressed: startGame,
-                      child: const Text("Start Game 🎯"),
+                      child: const Text("Start Game 🎮"),
                     ),
                   ),
               ],
