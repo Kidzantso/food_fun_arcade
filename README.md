@@ -28,7 +28,9 @@ This project is built using **Flutter**, making it cross-platform (Android & iOS
 **Tasks Completed:**
 - ✅ Set up the Flutter project structure.  
 - ✅ Created the **main app structure** with total points tracking.  
-- ✅ Built the **Home Screen** (entry point with navigation to mini-games).  
+- ✅ Built the **Home Screen** (entry point with navigation to mini-games).
+<img width="270" height="555" alt="Screenshot_1774926235" src="https://github.com/user-attachments/assets/08585e25-5c22-492a-bc4b-f466a9a8d17c" />
+
 - ✅ Developed the **Catch the Food** game screen:
   - Implemented falling food items (burger, fries, drink).  
   - Created a movable basket controlled by drag gestures.  
@@ -38,6 +40,9 @@ This project is built using **Flutter**, making it cross-platform (Android & iOS
   - Ensured score never goes negative.  
   - Added **end-game popup** with score summary and a “Home” button.  
 - 🧠 Prepared app for adding multiple mini-games in the future.
+<img width="270" height="555" alt="Screenshot_1774926242" src="https://github.com/user-attachments/assets/9507e1f3-ca60-47c3-af73-d4ff71aed26c" />
+
+
 
 ### 🗓️ Day 2 – Memory Match Game
 
@@ -54,6 +59,8 @@ This project is built using **Flutter**, making it cross-platform (Android & iOS
   - Same layout and visual theme as Catch Food.  
   - Rounded yellow box with a red “Back to Home” button.  
 - 🧠 Ensured code reusability for future games with the same design structure.
+
+<img width="270" height="555" alt="Screenshot_1774926286" src="https://github.com/user-attachments/assets/c7be7157-af2a-4d53-b5f0-1a9b0f2dee46" />
 
 ### 🗓️ Day 3 – Drink Tapper Game & UI Enhancements
 
@@ -72,6 +79,11 @@ This project is built using **Flutter**, making it cross-platform (Android & iOS
   - Each game reports earned points back to the `HomeScreen`.  
   - Total score is updated seamlessly.  
 - 🧠 Improved **gameplay feel and difficulty curve** to keep it fun and responsive.
+
+<img width="270" height="555" alt="Screenshot_1774926248" src="https://github.com/user-attachments/assets/fd043736-d964-4575-8c33-a7597f9e18b5" />
+
+### Victory and points screen
+<img width="270" height="555" alt="Screenshot_1774926331" src="https://github.com/user-attachments/assets/873e2aa6-afbc-4a27-a1bd-abfd2aa2a9f6" />
 
 ---
 
@@ -123,7 +135,7 @@ food_fun_arcade/
 ## 💡 Future Plans
 
 * Add more mini-games with different difficulty levels. ✅ Done
-* Integrate with restaurant’s **loyalty system** (points/rewards).
+* Integrate with restaurant’s **loyalty system** (points/rewards). (In taleb order repository)
 * Add animations, sound effects.
 
 
